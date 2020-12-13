@@ -1,0 +1,14 @@
+Fecha: 13 Diciembre 2020
+
+- Quite las claves del archivo de Settings en Django
+- Las claves son usadas como variables locales en el archivo .bash_profile
+    * en consola/terminal:
+        %cd  #nos colocamos en la raiz de la computadora
+    * en el archivo .bash_profile incluimos las siguientes lineas:
+        export VARIABLE_QUE_EXPORTO="clave_real_email"
+        Nota= Es importante no dejar espacios vacíos y guardar el archivo
+    * Cierro y abro el editor de text que estoy usando, en este caso Visual Code
+    * En el terminal usar:
+        %source ~/.bash_profile #Esto para actualizar las variables
+    * Pruebo el proyecto, en este caso:
+        %python manage.py rumserver
