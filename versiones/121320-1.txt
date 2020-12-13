@@ -1,0 +1,4 @@
+- En el .gitignore se incluyo el archivo de listaCambios.txt, que es un archivo interno para saber los cambios futuros a trabajar.
+- Se elimino la copia de views en Contacto.
+- Se actualizo la vista en Contacto:
+	Muestra el formulario vacío una vez que envía el email.

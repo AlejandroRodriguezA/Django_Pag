@@ -71,13 +71,16 @@ def contactForm (request):
             subject=info_formulario['subject']
             email_client=info_formulario['email']
             name=info_formulario['name']
-            message=info_formulario['message']+email_client+name
+            message=info_formulario['message']+ " " + email_client+" "+name
 
 
             send_mail(subject,message,email_from,recipient_list)
-            # messages.success(request, 'Your message was sent successfully. We will contact you shortly.')
+
+            #Limpia el formulario
+            formulario=ContactoForm(auto_id='%s')
+            
             #return HttpResponseRedirect('/contact')
-            #return render(request,'Contacto/contactForm.html',{"form":formulario})
+            return render(request,'Contacto/contactForm.html',{"form":formulario})
 
         # else:
             
