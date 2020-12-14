@@ -1,9 +1,11 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
-# from datetime import datetime
-# from django.contrib import messages
-# from django.core.exceptions import ValidationError
+from django.template.loader import get_template
+from django.template import Context
+
+from django.template.loader import render_to_string 
+from django.core.mail import EmailMessage
 
 from Contacto.models import *
 from Contacto.forms import  ContactoForm
@@ -47,22 +49,39 @@ def contact (request):
 
     
 
+def envio_email(contx):
+
+    """ Envio de template como string
+        plaintext=get_template('Contacto/email.txt')
+        text_content = plaintext.render(contx)
+        send_mail(subject,text_content,email_from,recipient_list)"""
+
+
+    htmly     = 'Contacto/email.html'
+    html_message = render_to_string(htmly, contx)
+    try:
+        send_mail(contx['subject'],"",contx['email_from'],contx['recipient_list'],html_message=html_message)
+        return 'Mensaje Enviado'
+    except:
+        return Exception('XYZ has gone wrong...')
+        
+    
+
+    """ Esta funcion EmailMessage es otra opcion para enviar mensajes
+        message_html = EmailMessage(subject, html_message, email_from, recipient_list)
+        message_html.content_subtype = 'html' # this is required because there is no plain text email version
+        message_html.send() """
+
+
 
 def contactForm (request):
     ''' Utilizando la API FORMS de Django'''
     if request.method=="POST":
         #Guarda la informacion del formulario en variables.
         email_from=settings.EMAIL_HOST_USER # Desde donde se envian los mensajes
-        recipient_list=[settings.EMAIL_HOST_RECIPIENT] #A donde llegan los mensajes enviados
-       
+        recipient_list=[settings.EMAIL_HOST_RECIPIENT] #A donde llegan los mensajes enviados     
 
         formulario=ContactoForm(request.POST,auto_id='%s')
-        
-
-        
-
-
-
 
         if formulario.is_valid():
             
@@ -71,16 +90,22 @@ def contactForm (request):
             subject=info_formulario['subject']
             email_client=info_formulario['email']
             name=info_formulario['name']
-            message=info_formulario['message']+ " " + email_client+" "+name
+            message=info_formulario['message']
+            
+            contx={"name":name,"email_client":email_client,"subject":subject,"message":message,"email_from":email_from,"recipient_list":recipient_list}
+
+            status_envio_email= envio_email(contx)
 
 
-            send_mail(subject,message,email_from,recipient_list)
+
+
+
 
             #Limpia el formulario
             formulario=ContactoForm(auto_id='%s')
             
             #return HttpResponseRedirect('/contact')
-            return render(request,'Contacto/contactForm.html',{"form":formulario})
+            return render(request,'Contacto/contactForm.html',{"form":formulario,"envio":status_envio_email})
 
         # else:
             
