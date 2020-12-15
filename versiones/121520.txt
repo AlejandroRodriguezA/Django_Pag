@@ -1,0 +1,6 @@
+121520
+
+- Instalacion de ANACONDA para poder manejar los env.
+- Instalacion de env.
+- Eliminacion de archivos HowTo y ListaCambios,
+que son de uso interno para la continuidad del proyecto
