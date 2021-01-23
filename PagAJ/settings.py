@@ -200,10 +200,21 @@ import dj_database_url
 conn_max_age = config.get('CONN_MAX_AGE', 600)  # Used in django-heroku
 config['DATABASES'] = {
     'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL'),    
+        os.environ.get('DATABASE_URL'),
+        NAME='PagAJ',   
         engine='django.db.backends.postgresql',
+        USER= 'postgres',
+        PASSWORD= os.environ.get('PASSWORD_DB'),
+        HOST= '127.0.0.1',
+        PORT= '5432'
         conn_max_age=conn_max_age,
         ssl_require=True,
     )
 }
 
+'NAME': 'PagAJ',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('PASSWORD_DB'),
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
