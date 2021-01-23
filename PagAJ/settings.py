@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ['https://aj-ra.herokuapp.com/']
 # Application definition
 
 INSTALLED_APPS = [
+    'AJ.apps.AjConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'AJ.apps.AjConfig',
     'Contacto.apps.ContactoConfig',
 ]
 
