@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'AJ',
-    'Contacto',
+    'AJ.apps.AjConfig',
+    'Contacto.apps.ContactoConfig',
 ]
 
 MIDDLEWARE = [
