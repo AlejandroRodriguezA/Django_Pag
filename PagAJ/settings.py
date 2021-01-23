@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import django_heroku
-#import dj_database_url
-#from decouple import config
+import dj_database_url
+from decouple import config
 
 
 from pathlib import Path
@@ -192,5 +192,17 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD_EMAIL')
 DEFAULT_EMAIL_FROM = os.environ.get('EMAIL_HOST_USER_EMAIL')
 EMAIL_HOST_RECIPIENT=os.environ.get('EMAIL_RECIPIENT_LIST')
 
-django_heroku.settings(locals())
+config = locals()
+django_heroku.settings(config, databases=False)
+# Manual configuration of database
+import dj_database_url
+conn_max_age = config.get('CONN_MAX_AGE', 600)  # Used in django-heroku
+config['DATABASES'] = {
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL'),    
+        engine='tenant_schemas.postgresql_backend',
+        conn_max_age=conn_max_age,
+        ssl_require=True,
+    )
+}
 
