@@ -1,0 +1,1 @@
+web: gunicorn PagAJ.wsgi --log-file -
