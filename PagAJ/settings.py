@@ -206,15 +206,8 @@ config['DATABASES'] = {
         USER= 'postgres',
         PASSWORD= os.environ.get('PASSWORD_DB'),
         HOST= '127.0.0.1',
-        PORT= '5432'
+        PORT= '5432',
         conn_max_age=conn_max_age,
         ssl_require=True,
     )
 }
-
-'NAME': 'PagAJ',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('PASSWORD_DB'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
