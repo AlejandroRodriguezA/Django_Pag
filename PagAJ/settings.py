@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import django_heroku
-import dj_database_url
-from decouple import config
+#import dj_database_url
+#from decouple import config
 
 
 from pathlib import Path
@@ -127,10 +127,10 @@ DATABASES = {
 }
 
 # add this
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-DATABASES['default']['CONN_MAX_AGE'] = 500
+
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
+#DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 DATABASE_ROUTERS = ['Contacto.router.Contacto_Router','AJ.router.AJ_Router']
