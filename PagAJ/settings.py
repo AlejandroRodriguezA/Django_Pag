@@ -200,7 +200,7 @@ conn_max_age = config.get('CONN_MAX_AGE', 600)  # Used in django-heroku
 config['DATABASES'] = {
     'default': dj_database_url.parse(
         os.environ.get('DATABASE_URL'),    
-        engine='tenant_schemas.postgresql_backend',
+        engine='django.db.backends.postgresql',
         conn_max_age=conn_max_age,
         ssl_require=True,
     )
