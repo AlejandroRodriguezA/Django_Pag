@@ -183,5 +183,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD_EMAIL')
 DEFAULT_EMAIL_FROM = os.environ.get('EMAIL_HOST_USER_EMAIL')
 EMAIL_HOST_RECIPIENT=os.environ.get('EMAIL_RECIPIENT_LIST')
 
-
+django_heroku.settings(locals())
 
