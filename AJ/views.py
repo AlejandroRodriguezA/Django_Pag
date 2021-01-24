@@ -10,7 +10,7 @@ from django.conf import settings
 
 def home (request):
 
-    return render(request,'AJ/home.html')
+    return render(request,'home')
 
 def about (request):
 
