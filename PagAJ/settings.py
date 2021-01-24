@@ -19,8 +19,8 @@ from pathlib import Path
 from django.core.mail import send_mail
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'Contacto.apps.ContactoConfig',
+    'Contacto',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'PagAJ.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'PagAJ.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Para PostgreSQL 
@@ -107,24 +107,24 @@ WSGI_APPLICATION = 'PagAJ.wsgi.application'
 # # Para usar varias BB.DD
 # Mas informacion en: https://docs.djangoproject.com/en/2.1/topics/db/multi-db/#automatic-database-routing
 
-DATABASES = {
-    'default': {
-        'NAME': 'PagAJ',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('PASSWORD_DB'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    },
-    'bd_contacto': {
-        'NAME': 'Contacto_Clientes',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('PASSWORD_DB'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'NAME': 'PagAJ',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'USER': 'postgres',
+#         'PASSWORD': os.environ.get('PASSWORD_DB'),
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     },
+#     'bd_contacto': {
+#         'NAME': 'Contacto_Clientes',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'USER': 'postgres',
+#         'PASSWORD': os.environ.get('PASSWORD_DB'),
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     }
+# }
 
 # add this
 
@@ -180,7 +180,6 @@ STATIC_URL = '/static/'
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 # Envio de Email
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -193,17 +192,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD_EMAIL')
 DEFAULT_EMAIL_FROM = os.environ.get('EMAIL_HOST_USER_EMAIL')
 EMAIL_HOST_RECIPIENT=os.environ.get('EMAIL_RECIPIENT_LIST')
 
-config = locals()
-django_heroku.settings(config, databases=False)
-# Manual configuration of database
-import dj_database_url
-conn_max_age = config.get('CONN_MAX_AGE', 600)  # Used in django-heroku
-config['DATABASES'] = {
-    'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL'),    
-        engine='django.db.backends.postgresql',
-        conn_max_age=conn_max_age,
-        ssl_require=True,
-    )
-}
+django_heroku.settings(locals())
 
