@@ -11,8 +11,11 @@ from . import views
 
 
 def home (request):
+    context = {
+        'title': 'XXXX'
+    }
 
-    return render(request,'AJ/home.html')
+    return render(request,'AJ/home.html',context)
 
 def about (request):
 
