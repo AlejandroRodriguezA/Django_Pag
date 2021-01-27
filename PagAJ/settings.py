@@ -28,23 +28,21 @@ BASE_PRO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '001482f592662766200d43c46f990d77671f84d9cbdcecd1'
-#SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
+#SECRET_KEY = '001....ecd1'
+SECRET_KEY = os.environ.get('SECRET_KEY_DJANGO')
+# SECRET_KEY='os.environ.get['SECRET_KEY_DJANGO']'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://aj-ra-l.herokuapp.com/']
+
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+#ALLOWED_HOSTS='[os.environ.get['ALLOWED_HOSTS']]'
 
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'AJ/static'),
-#    ]
-
 
 
 # Application definition
@@ -192,10 +190,16 @@ EMAIL_HOST='smtp.gmail.com'
 EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False
 EMAIL_PORT=587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER_EMAIL')  
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER_EMAIL')
+# EMAIL_HOST_USER='os.environ.get['EMAIL_HOST_USER_EMAIL']'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD_EMAIL') 
+# EMAIL_HOST_PASSWORD='os.environ.get['EMAIL_HOST_PASSWORD_EMAIL']'
 DEFAULT_EMAIL_FROM = os.environ.get('EMAIL_HOST_USER_EMAIL')
-EMAIL_HOST_RECIPIENT=os.environ.get('EMAIL_RECIPIENT_LIST')
+# DEFAULT_EMAIL_FROM='os.environ.get['EMAIL_HOST_USER_EMAIL']'
+EMAIL_HOST_RECIPIENT = os.environ.get('EMAIL_RECIPIENT_LIST')
+# EMAIL_HOST_RECIPIENT='os.environ.get['EMAIL_RECIPIENT_LIST']'
 
 django_heroku.settings(locals())
 
+#heroku config:set
+#-remote heroku2
