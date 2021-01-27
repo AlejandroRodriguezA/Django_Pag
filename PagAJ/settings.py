@@ -36,6 +36,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://aj-ra-l.herokuapp.com/']
 
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static'),
+   ]
+
+
 
 # Application definition
 
@@ -172,15 +182,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'static'),
-   ]
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
