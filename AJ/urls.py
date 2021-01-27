@@ -19,7 +19,7 @@ from . import views
 
 app_name = 'AJ'
 urlpatterns = [
-    path('/',views.home,name='home'),
+    path('',views.home,name='home'),
     path('about/',views.about,name='about'),
     path('resume/',views.resume,name='resume'),
     path('services/',views.services,name='services'),
