@@ -12,7 +12,7 @@ from . import views
 
 def home (request):
 
-    return render(request,'AJ/home.html',context)
+    return render(request,'AJ/home.html')
 
 def about (request):
 
