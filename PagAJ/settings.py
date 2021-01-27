@@ -68,7 +68,7 @@ ROOT_URLCONF = 'PagAJ.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_PRO, 'templates/')],
+        'DIRS': [os.path.join(BASE_PRO, 'AJ/templates/AJ/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
