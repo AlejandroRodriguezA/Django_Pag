@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Personal AJ</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load static %}
+
+  <!-- Favicons -->
+  <link href="{% static 'AJ/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'AJ/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'AJ/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'AJ/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'AJ/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'AJ/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'AJ/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'AJ/vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'AJ/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Personal - v2.4.0
+  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header-tops">
+    <div class="container">
+
+      <h1><a href="{% url 'AJ:homeAj' %}">Alejandro Rodriguez</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="mr-auto"><img src="{% static 'AJ/img/logo.png" alt="" class="img-fluid"></a> -->
+      {% block content1 %}
+        <!-- Aqui va el contenido de la pagina de "HOME"-->
+      {% endblock %}
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'AJ:homeAj' %}">Home</a></li>
+          <li><a href="{% url 'AJ:about' %}#about">About</a></li>
+          <li><a href="{% url 'AJ:resume' %}#resume">Resume</a></li>
+          <li><a href="{% url 'AJ:services' %}#services">Services</a></li>
+          <li><a href="{% url 'AJ:portfolio' %}#portfolio">Portfolio</a></li>
+          <li><a href="{% url 'AJ:LogIn' %}">Log In</a></li>
+          <li><a href="{% url 'Contacto:contact' %}#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+{% block content %}
+
+
+{% endblock %}
+
+  
+  <div class="credits">
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
+    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'AJ/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'AJ/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'AJ/vendor/venobox/venobox.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'AJ/js/main.js' %}"></script>
+
+</body>
+
+</html>
