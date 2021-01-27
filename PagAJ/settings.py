@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ['https://aj-ra-l.herokuapp.com/']
 # Application definition
 
 INSTALLED_APPS = [
-    'AJ.apps.AjConfig',
+    'AJ.apps.AJConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
