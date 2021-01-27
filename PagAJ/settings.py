@@ -41,6 +41,7 @@ ALLOWED_HOSTS = ['https://aj-ra-l.herokuapp.com/']
 
 INSTALLED_APPS = [
     'AJ.apps.AjConfig',
+    'Contacto.apps.ContactoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'Contacto',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'PagAJ.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
