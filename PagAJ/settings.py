@@ -41,9 +41,9 @@ ALLOWED_HOSTS = ['https://aj-ra-l.herokuapp.com/']
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'AJ/static'),
-   ]
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'AJ/static'),
+#    ]
 
 
 
@@ -77,7 +77,7 @@ ROOT_URLCONF = 'PagAJ.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'AJ/templates')],
+        'DIRS': [os.path.join(BASE_DIR, '../AJ/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
