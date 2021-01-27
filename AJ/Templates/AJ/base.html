@@ -43,7 +43,7 @@
   <header id="header" class="header-tops">
     <div class="container">
 
-      <h1><a href="{% url 'home' %}">Alejandro Rodriguez</a></h1>
+      <h1><a href="{% url 'AJ:homeAj' %}">Alejandro Rodriguez</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="{% static 'AJ/img/logo.png" alt="" class="img-fluid"></a> -->
       {% block content1 %}
@@ -52,13 +52,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}#about">About</a></li>
-          <li><a href="{% url 'resume' %}#resume">Resume</a></li>
-          <li><a href="{% url 'services' %}#services">Services</a></li>
-          <li><a href="{% url 'portfolio' %}#portfolio">Portfolio</a></li>
-          <li><a href="{% url 'LogIn' %}">Log In</a></li>
-          <li><a href="{% url 'contact' %}#contact">Contact</a></li>
+          <li class="active"><a href="{% url 'AJ:homeAj' %}">Home</a></li>
+          <li><a href="{% url 'AJ:about' %}#about">About</a></li>
+          <li><a href="{% url 'AJ:resume' %}#resume">Resume</a></li>
+          <li><a href="{% url 'AJ:services' %}#services">Services</a></li>
+          <li><a href="{% url 'AJ:portfolio' %}#portfolio">Portfolio</a></li>
+          <li><a href="{% url 'AJ:LogIn' %}">Log In</a></li>
+          <li><a href="{% url 'Contacto:contact' %}#contact">Contact</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

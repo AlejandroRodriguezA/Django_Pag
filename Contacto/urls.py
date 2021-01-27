@@ -17,7 +17,7 @@ from django.urls import path
 
 from Contacto import views
 
-
+app_name = 'Contacto'
 urlpatterns = [
     # path('contact',views.contact,name='contact'), #Cuando llama a la vista normal
     path('contact/',views.contactForm,name='contact') #Cuando llama al template con forms, el name es el URL que se ve
