@@ -10,7 +10,7 @@ from django.conf import settings
 
 def home (request):
 
-    return render(request,'home')
+    return render(request,'home-pag')
 
 def about (request):
 

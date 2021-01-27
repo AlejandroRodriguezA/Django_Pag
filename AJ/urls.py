@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 
-from AJ import views
+from . import views
 
 
 urlpatterns = [
-    path('',views.home,name='home'),
+    path('',views.home,name='home-pag'),
     path('about',views.about,name='about'),
     path('resume',views.resume,name='resume'),
     path('services',views.services,name='services'),
