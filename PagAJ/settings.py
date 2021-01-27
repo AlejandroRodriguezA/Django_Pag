@@ -73,11 +73,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PagAJ.urls'
-
+TEMPLATES_PATH = os.path.join(BASE_DIR,'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '..','templates')],
+        'DIRS': [TEMPLATES_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
