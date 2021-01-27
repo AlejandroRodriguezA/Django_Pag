@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Importaciones para el envio de mail en contacto
 from django.core.mail import send_mail
 from django.conf import settings
+from . import views
+
 # fin importaciones de email
 
 # Create your views here.
