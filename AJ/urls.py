@@ -18,10 +18,11 @@ Including another URLconf
 from django.urls import path
 
 from . import views
+from django.views.generic import TemplateView
 
 app_name = 'AJ'
 urlpatterns = [
-    path('',views.home,name="homeAj"),
+    path('',TemplateView.as_view(template_name="AJ/home.html"),name="homeAj"),
     path('about/',views.about,name='about'),
     path('resume/',views.resume,name='resume'),
     path('services/',views.services,name='services'),
