@@ -10,6 +10,8 @@ from django.core.mail import EmailMessage
 from Contacto.models import *
 from Contacto.forms import  ContactoForm
 
+import traceback
+
 # Create your views here.
 def contact (request):
     # now=datetime.now()
@@ -60,10 +62,22 @@ def envio_email(contx):
     htmly     = 'Contacto/email.html'
     html_message = render_to_string(htmly, contx)
     try:
-        send_mail(contx['subject'],"",contx['email_from'],contx['recipient_list'],html_message=html_message)
+        send_mail(
+            contx['subject'],
+            "",
+            contx['email_from'],
+            contx['recipient_list'],
+            fail_silently=False,
+            html_message=html_message,
+            )
+        # raise ValueError
         return 'Mensaje Enviado'
     except:
+        tb = traceback.format_exc()
         return Exception('XYZ has gone wrong...')
+    """ finally:
+        print(tb)
+        return tb  """
         
     
 
